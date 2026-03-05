@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Virada - Sistema Exclusivo</title>
+    
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1500198231655692');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1500198231655692&ev=PageView&noscript=1"
+    /></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
@@ -12,40 +28,24 @@
     <style>
         /* --- VARIÁVEIS DE COR E ESTILO --- */
         :root {
-            --bg-color: #000000; /* PRETO PURO */
+            --bg-color: #000000; 
             --text-main: #FFFFFF;
             --text-muted: #A0A0A0;
             
-            /* Dourados Vibrantes e Metálicos */
             --gold-light: #FFF9E0;
             --gold-vibrant: #FFD700; 
             --gold-rich: linear-gradient(135deg, #D4AF37, #FFF2CD, #AA771C);
             --gold-shadow: rgba(212, 175, 55, 0.4);
             
-            /* Cores de Gráfico (Trade) */
-            --bull-green: #00E676; /* Vela de Alta */
-            --bear-red: #FF1744;   /* Vela de Baixa */
+            --bull-green: #00E676; 
+            --bear-red: #FF1744;   
 
             --danger: #ff3333;
         }
 
-        /* --- RESET & BASE --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; line-height: 1.8; font-size: 16px; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
-            line-height: 1.8;
-            font-size: 16px;
-        }
-
-        /* Fundo Radial muito sutil apenas para profundidade (Preto predominante) */
         .ambient-glow {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
             background: radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.05), transparent 50%),
@@ -53,161 +53,85 @@
             pointer-events: none;
         }
 
-        /* --- CARROSSEL INFINITO (MARQUEE) --- */
         .top-marquee {
-            background: var(--gold-rich);
-            color: #000;
-            padding: 12px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            z-index: 100;
+            background: var(--gold-rich); color: #000; padding: 12px 0; overflow: hidden;
+            white-space: nowrap; position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
             box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
         }
         .marquee-content {
-            display: inline-block;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 1rem;
-            letter-spacing: 2px;
-            animation: scroll-marquee 25s linear infinite;
+            display: inline-block; font-family: 'Montserrat', sans-serif; font-weight: 900;
+            font-size: 1rem; letter-spacing: 2px; animation: scroll-marquee 25s linear infinite;
         }
-        @keyframes scroll-marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+        @keyframes scroll-marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- ESTRUTURA DE SEÇÕES --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 120px 20px 60px;
-        }
-
+        .container { max-width: 1200px; margin: 0 auto; padding: 120px 20px 60px; }
         section { padding: 50px 0; position: relative; }
 
-        /* --- LAYOUT CAPA (HEADLINE + IPHONE + PORSCHE) --- */
         .headline-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-align: left;
-            padding: 60px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            gap: 40px;
+            display: flex; align-items: center; justify-content: space-between; text-align: left;
+            padding: 60px 0; border-bottom: 1px solid rgba(255,255,255,0.05); gap: 40px;
         }
         .headline-text { width: 55%; z-index: 5; }
-        
-        h1 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            line-height: 1.2;
-            letter-spacing: -1px;
-            color: var(--text-main);
-        }
+        h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.2; letter-spacing: -1px; color: var(--text-main); }
         .highlight-gold {
-            background: var(--gold-rich);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-            filter: drop-shadow(0 0 1px rgba(255,215,0,0.3));
+            background: var(--gold-rich); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            display: inline-block; filter: drop-shadow(0 0 1px rgba(255,215,0,0.3));
         }
 
-        /* --- GRÁFICO DIREITA: 3D COMPOSITION --- */
         .headline-graphic {
-            width: 45%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            perspective: 1000px;
-            min-height: 550px;
+            width: 45%; display: flex; justify-content: center; align-items: center;
+            position: relative; perspective: 1000px; min-height: 550px;
         }
 
-        /* MOCKUP PORSCHE 911 (Atrás do celular) */
         .porsche-mockup {
-            position: absolute;
-            right: -80px;
-            bottom: 180px; /* Acima do mini-gráfico */
-            width: 380px; /* Tamanho do carro */
-            z-index: 0; /* Fica atrás do celular */
-            transform: translateZ(-80px); /* Joga mais pra trás na perspectiva 3D */
-            animation: float-car 7s ease-in-out infinite alternate;
-            filter: drop-shadow(0 40px 20px rgba(0,0,0,0.9)); /* Sombra realista embaixo do carro */
-            opacity: 0.95;
-            pointer-events: none;
+            position: absolute; right: -80px; bottom: 180px; width: 380px; z-index: 0; 
+            transform: translateZ(-80px); animation: float-car 7s ease-in-out infinite alternate;
+            filter: drop-shadow(0 40px 20px rgba(0,0,0,0.9)); opacity: 0.95; pointer-events: none;
         }
 
-        /* iPhone Mockup Realista CSS */
         .iphone-mockup {
-            width: 260px;
-            height: 530px;
-            background: #050505;
-            border-radius: 45px;
-            position: relative;
-            box-shadow: 
-                inset 0 0 15px rgba(255,255,255,0.1), 
-                0 25px 50px rgba(0,0,0,0.9),          
-                0 0 0 3px #1a1a1a,                    
-                0 0 0 8px #d4af37,                    
-                0 0 20px rgba(212, 175, 55, 0.4);     
-            z-index: 2; /* Fica na frente do carro */
-            transform: rotateY(-15deg) rotateX(5deg);
-            transform-style: preserve-3d;
+            width: 260px; height: 530px; background: #050505; border-radius: 45px; position: relative;
+            box-shadow: inset 0 0 15px rgba(255,255,255,0.1), 0 25px 50px rgba(0,0,0,0.9),          
+                0 0 0 3px #1a1a1a, 0 0 0 8px #d4af37, 0 0 20px rgba(212, 175, 55, 0.4);     
+            z-index: 2; transform: rotateY(-15deg) rotateX(5deg); transform-style: preserve-3d;
             animation: float-phone 6s ease-in-out infinite alternate;
         }
         
-        /* Notch / Dynamic Island */
         .iphone-mockup::before {
             content: ''; position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
             width: 80px; height: 22px; background: #000; border-radius: 20px; z-index: 10;
         }
 
-        /* Tela do Celular (Conteúdo) */
         .iphone-screen {
             position: absolute; top: 4px; left: 4px; right: 4px; bottom: 4px;
             background: #111; border-radius: 40px; overflow: hidden;
             display: flex; flex-direction: column; padding: 40px 15px 15px;
         }
 
-        /* Elementos da Tela (App Daytrade) - CORRIGIDO PARA DASHBOARD */
         .app-header { display: flex; justify-content: space-between; color: #fff; font-size: 0.8rem; margin-bottom: 20px; font-weight: 700;}
         .app-balance { font-size: 1.8rem; font-weight: 900; color: var(--gold-vibrant); margin-bottom: 5px; }
         .app-profit { color: var(--bull-green); font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 5px; }
-        
-        /* Gráfico SVG Daytrade dentro do celular */
         .chart-svg { width: 100%; height: 180px; margin-top: auto; overflow: visible;}
 
-        /* Gráfico Flutuante Externo (Atrás do celular, abaixo do carro) */
         .floating-chart {
-            position: absolute; right: -20px; bottom: 40px;
-            width: 200px; height: 150px;
-            background: rgba(20, 20, 20, 0.8);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 15px; backdrop-filter: blur(10px);
-            padding: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.9);
-            z-index: 1; /* Atrás do celular, na frente do carro */
-            transform: translateZ(-30px); 
-            animation: float-chart 5s ease-in-out infinite alternate-reverse;
+            position: absolute; right: -20px; bottom: 40px; width: 200px; height: 150px;
+            background: rgba(20, 20, 20, 0.8); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px; backdrop-filter: blur(10px); padding: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.9);
+            z-index: 1; transform: translateZ(-30px); animation: float-chart 5s ease-in-out infinite alternate-reverse;
         }
 
-        /* Animações Flutuantes 3D */
         @keyframes float-phone { 0% { transform: translateY(0) rotateY(-15deg) rotateX(5deg); } 100% { transform: translateY(-20px) rotateY(-15deg) rotateX(5deg); } }
         @keyframes float-chart { 0% { transform: translateY(0) translateZ(-30px); } 100% { transform: translateY(-15px) translateZ(-30px); } }
         @keyframes float-car { 0% { transform: translateY(0) translateZ(-80px); } 100% { transform: translateY(-12px) translateZ(-80px); } }
 
-        /* --- CONTEÚDO NARRATIVO --- */
         .narrative-section { max-width: 800px; margin: 0 auto; text-align: left; }
         p { font-size: 1.25rem; margin-bottom: 25px; color: #E8E8E8; font-weight: 400; }
         strong { font-weight: 700; color: var(--gold-vibrant); }
 
-        /* Listas Minimalistas */
         .list-container { margin: 30px 0; display: flex; flex-direction: column; gap: 15px; }
         .list-container p { margin-bottom: 0; font-weight: 600; font-size: 1.15rem; color: var(--text-main); display: flex; align-items: center; gap: 15px;}
         .list-container i { color: var(--gold-vibrant); font-size: 1.1rem; }
 
-        /* Aviso Estratégico - CORRIGIDO PARA "AVISO" APENAS */
         .aviso-section {
             max-width: 800px; margin: 0 auto 50px; text-align: left;
             border-left: 3px solid var(--danger); background: rgba(255, 51, 51, 0.08);
@@ -218,7 +142,6 @@
             letter-spacing: 1.5px; font-size: 1rem;
         }
 
-        /* --- BOTÃO CTA (CORRIGIDO E OTIMIZADO) --- */
         .cta-section {
             max-width: 900px; margin: 80px auto 0; padding: 80px 20px;
             border-top: 1px solid rgba(212, 175, 55, 0.2); text-align: center;
@@ -229,18 +152,14 @@
             background: var(--gold-rich); color: #000; text-decoration: none;
             font-weight: 900; font-size: 1.4rem; padding: 25px 45px; border-radius: 60px;
             text-transform: uppercase; letter-spacing: 2px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative; overflow: hidden; border: none; cursor: pointer;
-            width: 100%; max-width: 650px;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-            animation: safe-pulse 2s infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; border: none; cursor: pointer;
+            width: 100%; max-width: 650px; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4); animation: safe-pulse 2s infinite;
         }
 
         .btn::before {
             content: ''; position: absolute; top: 0; left: 0; width: 50%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-            transform: skewX(-20deg) translateX(-250%);
-            animation: safe-shine 3s infinite;
+            transform: skewX(-20deg) translateX(-250%); animation: safe-shine 3s infinite;
         }
 
         .btn:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.7); }
@@ -255,28 +174,22 @@
             50%, 100% { transform: skewX(-20deg) translateX(400%); } 
         }
 
-        /* --- CONTADOR --- */
         .timer-container { display: flex; justify-content: center; gap: 20px; margin: 30px 0 50px; }
-        .time-box {
-            background: #0a0a0a; border: 1px solid rgba(212,175,55,0.5);
-            padding: 20px; border-radius: 12px; min-width: 110px;
-        }
+        .time-box { background: #0a0a0a; border: 1px solid rgba(212,175,55,0.5); padding: 20px; border-radius: 12px; min-width: 110px; }
         .time-box span { display: block; font-size: 3rem; font-weight: 900; color: var(--gold-vibrant); line-height: 1; font-variant-numeric: tabular-nums; }
         .time-box label { font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 2px; font-weight: 700; margin-top: 5px; display: block;}
 
-        /* --- REVEAL --- */
         .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .scale-in { opacity: 0; transform: scale(0.9); transition: opacity 0.8s ease, transform 0.8s ease; }
         .scale-in.active { opacity: 1; transform: scale(1); }
 
-        /* --- RESPONSIVIDADE --- */
         @media (max-width: 900px) {
             .headline-section { flex-direction: column; text-align: center; gap: 50px; }
             .headline-text, .headline-graphic { width: 100%; }
             .iphone-mockup { transform: rotateY(0) rotateX(0); z-index: 2; } 
             .floating-chart { display: none; } 
-            .porsche-mockup { right: -20px; bottom: 250px; width: 250px; opacity: 0.6; } /* Adapta o carro pro celular pra não estourar a tela */
+            .porsche-mockup { right: -20px; bottom: 250px; width: 250px; opacity: 0.6; } 
             h1 { font-size: 2.2rem; }
             .btn { font-size: 1.2rem; padding: 20px; }
         }
@@ -300,7 +213,6 @@
             </div>
             
             <div class="headline-graphic active">
-                
                 <img src="https://www.pngall.com/wp-content/uploads/2016/04/Porsche-PNG-Image.png" alt="Porsche 911" class="porsche-mockup scale-in active">
 
                 <div class="iphone-mockup scale-in active">
@@ -314,22 +226,16 @@
                         
                         <svg class="chart-svg" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
                             <line x1="0" y1="140" x2="200" y2="140" stroke="#333" stroke-width="1"/>
-                            
                             <line x1="20" y1="110" x2="20" y2="130" stroke="#FF1744" stroke-width="2"/>
                             <rect x="15" y="115" width="10" height="10" fill="#FF1744" rx="2"/>
-                            
                             <line x1="50" y1="90" x2="50" y2="120" stroke="#00E676" stroke-width="2"/>
                             <rect x="45" y="95" width="10" height="20" fill="#00E676" rx="2"/>
-
                             <line x1="80" y1="100" x2="80" y2="80" stroke="#FF1744" stroke-width="2"/>
                             <rect x="75" y="85" width="10" height="10" fill="#FF1744" rx="2"/>
-
                             <line x1="110" y1="60" x2="110" y2="90" stroke="#00E676" stroke-width="2"/>
                             <rect x="105" y="65" width="10" height="20" fill="#00E676" rx="2"/>
-
                             <line x1="140" y1="40" x2="140" y2="70" stroke="#00E676" stroke-width="2"/>
                             <rect x="135" y="45" width="10" height="20" fill="#00E676" rx="2"/>
-
                             <line x1="170" y1="20" x2="170" y2="55" stroke="#00E676" stroke-width="2"/>
                             <rect x="165" y="25" width="10" height="25" fill="#00E676" rx="2"/>
                             
@@ -418,7 +324,7 @@
 
             <p style="font-size: 3rem; margin-bottom: 25px; color: var(--gold-vibrant);"><i class="fas fa-hand-point-down"></i></p>
             
-            <a href="#" class="btn scale-in">
+            <a href="https://cakto.app/9zYZSBK/?affiliate=4V9EUkB3" class="btn scale-in" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-unlock-alt"></i> ACESSAR A EXPLICAÇÃO COMPLETA
             </a>
         </div>
